@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNI-ASSESS</title>
+</head>
+   <link rel="stylesheet" href="style.css">
+  <style>
+     h3{
+          color: rgb(0, 0, 0);
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          font-size: 50px;
+          font-weight: 100px;
+        }
+     h4{
+        font-size: 30px;
+        font-weight: 50px;
+     }   
+    
+  button{
+    background-color: yellow;
+  }
+  
+
+  </style>
+<body>
+      <header>
+            <nav>
+                   <h1 class="logo">UNI-ASSESS</h1>
+                <a href="index.html">Home</a>
+                <a href="CSC.html"> CSC </a>
+                <a href="STA.html">STA</a>
+                <a href="COS.html">COS</a>
+            </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+
+        
+      <div class="container">
+      <div class="calculator">
+
+
+        <input type="text" id="display" readonly>
+      
+
+        <button class="press" onclick="press('7')">7</button>
+        <button class="press" onclick="press('8')">8</button>
+        <button class="press" onclick="press('9')">9</button>
+        <button class="press" onclick="press('/')">/</button>
+        <button class="press" onclick="press('4')">4</button>
+        <button class="press" onclick="press('5')">5</button>
+        <button class="press" onclick="press('6')">6</button>
+        <button class="press" onclick="press('*')">*</button>
+        <button class="press" onclick="press('1')">1</button>
+        <button class="press" onclick="press('2')">2</button>
+        <button class="press" onclick="press('3')">3</button>
+         <button class="press" onclick="press('-')">-</button>
+        <button class="press" onclick="press('0')">0</button>
+         <button class="press" onclick="calculate()">=</button>
+        <button class="press" onclick="clearDisplay()">C</button>
+         <button class="press" onclick="press('+')">+</button>
+
+         </div>
+                   </div>
+
+                  <script>
+                    let display =
+                       document.getElementById("display");
+
+                       function press(value) {
+                         display.value += value;
+                       }
+
+                       function calculate() {
+                         display.value= eval(display.value);
+                       }
+
+                       function clearDisplay()  {
+                         display.value = "";
+                       }
+                  </script>   
+       <br>
+       <br>
+       <br>
+       <br>
+    
+    <div id="timer">
+  Time Left: <span id="time">60:00</span>
+</div>
+   <script>
+  // Set time in minutes
+  let totalTime = 60 * 60; // 30 minutes in seconds
+
+  const timerDisplay = document.getElementById("time");
+
+  function startTimer() {
+    const timerInterval = setInterval(function () {
+      let minutes = Math.floor(totalTime / 60);
+      let seconds = totalTime % 60;
+
+      // Format to always show 2 digits
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      timerDisplay.textContent = minutes + ":" + seconds;
+
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Submitting test...");
+        
+        // Auto-submit form
+        document.getElementById("cbtForm").submit();
+      }
+
+      totalTime--;
+    }, 1000);
+
+    // Submit function
+  function submitExam() {
+    let timeUsed = originalTime - totalTime;
+
+    // Save time used in localStorage
+    localStorage.setItem("timeUsed", timeUsed);
+
+    document.getElementById("cbtForm").submit();
+  }
+  }
+
+  // Start immediately page loads
+  window.onload = startTimer;
+</script>
+                   <form id="cbtForm" action="Result.html" method="get">
+
+                               <h3>MATHEMATICS</h3>
+                                
+      <h4>Discrete Mathematics</h4>
+      <!--Quesion 1-->
+  <div class="question">
+      <p><strong>1. If A={1,2,3} and B={3,4,5}. Find A^B</strong></p>
+
+      <label>
+        <input type="radio" name="q1" value="A">
+          A. {1,2}
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q1" value="B">
+          B. {3}
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q1" value="C">
+          C. {4,5}
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q1" value="D">
+          D. {1,2,3,4,5}
+      </label><br>
+      <button type="button" onclick="clearAnswer('q1')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+<!--QUESTION 2-->
+  <div class="question">
+      <h5>2: Which of the following is a prime number?</h5>
+      <label><input type="radio" name="q2" value="A"> 21</label><br>
+      <label><input type="radio" name="q2" value="B"> 29</label><br>
+      <label><input type="radio" name="q2" value="C"> 35</label><br>
+      <label><input type="radio" name="q2" value="D"> 49</label><br>
+    </div>
+      <button type="button" onclick="clearAnswer('q2')">Clear</button>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+      <!--Question 3-->
+    <div class="question">
+      <h5>3: The power set of {a, b} has:</h5>
+      <label><input type="radio" name="q3" value="A"> 2 elements</label><br>
+      <label><input type="radio" name="q3" value="B"> 3 elements</label><br>
+      <label><input type="radio" name="q3" value="C"> 4 elements</label><br>
+      <label><input type="radio" name="q3" value="D"> 5 elements</label><br>
+    </div>
+         <button type="button" onclick="clearAnswer('q3')">Clear</button>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+      <!--Question 4-->
+    <div class="question">
+      <h5>4: The number of permutations of 5 distinct objects taken 3 at a time is:</h5>
+      <label><input type="radio" name="q4" value="A"> 60</label><br>
+      <label><input type="radio" name="q4" value="B"> 20</label><br>
+      <label><input type="radio" name="q4" value="C"> 125</label><br>
+      <label><input type="radio" name="q4" value="D"> 10</label><br>
+    </div>
+        <button type="button" onclick="clearAnswer('q4')">Clear</button>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+      
+<!--Question 5-->
+    <div class="question">
+      <h5>5: Which relation on the set of integers is reflexive?</h5>
+      <label><input type="radio" name="q5" value="A"> x &lt; y</label><br>
+      <label><input type="radio" name="q5" value="B"> x = y</label><br>
+      <label><input type="radio" name="q5" value="C"> x &gt; y</label><br>
+      <label><input type="radio" name="q5" value="D"> x ≠ y</label><br>
+    </div>
+         <button type="button" onclick="clearAnswer('q5')">Clear</button>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+      
+<!--Question 6-->
+    <div class="question">
+      <h5>6: A simple graph with 6 vertices and 7 edges is:</h5>
+      <label><input type="radio" name="q6" value="A"> Complete</label><br>
+      <label><input type="radio" name="q6" value="B"> Connected</label><br>
+      <label><input type="radio" name="q6" value="C"> Empty</label><br>
+      <label><input type="radio" name="q6" value="D"> Bipartite</label><br>
+    </div>
+         <button type="button" onclick="clearAnswer('q6')">Clear</button>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+            
+<!-- Question 7 -->
+ <div class="question">
+<p>7. Let A = {1,2,3} and B = {2,3,4}. What is A ∩ B?</p>
+<input type="radio" name="q7" value="A"> {1,2,3,4}<br>
+<input type="radio" name="q7" value="B"> {2,3}<br>
+<input type="radio" name="q7" value="C"> {1,4}<br>
+<input type="radio" name="q7" value="D"> { }<br>
+ </div>
+    <button type="button" onclick="clearAnswer('q7')">Clear</button>
+    <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 8 -->
+ <div class="question">
+<p>8. In logic, if P → Q is false only when P is true and Q is false, what is the truth value of P → Q when P is false and Q is true?</p>
+<input type="radio" name="q8" value="A"> False<br>
+<input type="radio" name="q8" value="B"> True<br>
+<input type="radio" name="q8" value="C"> Cannot determine<br>
+<input type="radio" name="q8" value="D"> Invalid<br>
+   </div>
+<button type="button" onclick="clearAnswer('q8')">Clear</button>
+ <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 9 -->
+ <div class="question">
+<p>9. How many subsets does a set with 4 elements have?</p>
+<input type="radio" name="q9" value="A"> 4<br>
+<input type="radio" name="q9" value="B"> 8<br>
+<input type="radio" name="q9" value="C"> 12<br>
+<input type="radio" name="q9" value="D"> 16<br>
+</div>
+<button type="button" onclick="clearAnswer('q9')">Clear</button>
+ <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 10 -->
+ <div class="question">
+<p>10. If f : X → Y is a function and X = {a,b}, Y = {1,2,3}, how many possible functions f can be defined?</p>
+<input type="radio" name="q10" value="A"> 2<br>
+<input type="radio" name="q10" value="B"> 3<br>
+<input type="radio" name="q10" value="C"> 6<br>
+<input type="radio" name="q10" value="D"> 9<br>
+</div>
+<button type="button" onclick="clearAnswer('q10')">Clear</button>
+ <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 11 -->
+ <div class="question">
+<p>11. What is the binary equivalent of the decimal number 13?</p>
+<input type="radio" name="q11" value="A"> 1010<br>
+<input type="radio" name="q11" value="B"> 1101<br>
+<input type="radio" name="q11" value="C"> 1001<br>
+<input type="radio" name="q11" value="D"> 0111<br>
+</div>
+<button type="button" onclick="clearAnswer('q11')">Clear</button>
+<script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 12 -->
+ <div class="question">
+<p>12. The number of edges in a complete graph with 5 vertices (K₅) is:</p>
+<input type="radio" name="q12" value="A"> 5<br>
+<input type="radio" name="q12" value="B"> 8<br>
+<input type="radio" name="q12" value="C"> 10<br>
+<input type="radio" name="q12" value="D"> 15<br>
+</div>
+<button type="button" onclick="clearAnswer('q12')">Clear</button>
+<script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 13 -->
+ <div class="question">
+<p>13. Which of these is a tautology?</p>
+<input type="radio" name="q13" value="A"> P ∧ ¬P<br>
+<input type="radio" name="q13" value="B"> P ∨ ¬P<br>
+<input type="radio" name="q13" value="C"> P → ¬P<br>
+<input type="radio" name="q13" value="D"> ¬P → P<br>
+</div>
+<button type="button" onclick="clearAnswer('q13')">Clear</button>
+<script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 14 -->
+ <div class="question">
+<p>14. Let A = {1,3,5} and B = {1,2,3}. Then A − B equals:</p>
+<input type="radio" name="q14" value="A"> {2,5}<br>
+<input type="radio" name="q14" value="B"> {1,3}<br>
+<input type="radio" name="q14" value="C"> {5}<br>
+<input type="radio" name="q14" value="D"> { }<br>
+</div>
+<button type="button" onclick="clearAnswer('q14')">Clear</button>
+<script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+<!-- Question 15 -->
+ <div class="question">
+<p>15. The statement "If 7 is prime, then 2 + 2 = 5" is:</p>
+<input type="radio" name="q15" value="A"> True<br>
+<input type="radio" name="q15" value="B"> False<br>
+<input type="radio" name="q15" value="C"> Neither<br>
+<input type="radio" name="q15" value="D"> Cannot determine<br>
+</div>
+<button type="button" onclick="clearAnswer('q15')">Clear</button>
+<script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+
+               <h4>Linear Algebra</h4>
+    <!-- Linear Algebra -->
+    <div class="question">
+      <h5>  16: The determinant of a 2×2 matrix [[a, b],[c, d]] is:</h5>
+      <label><input type="radio" name="q16" value="A"> ad + bc</label><br>
+      <label><input type="radio" name="q16" value="B"> ad − bc</label><br>
+      <label><input type="radio" name="q16" value="C"> a + d</label><br>
+      <label><input type="radio" name="q16" value="D"> a − d</label><br>
+    </div>
+      <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+<br>
+               
+ <!-- Question 2 -->
+<p>17. If A = \(\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}\), what is det(A)?</p>
+<input type="radio" name="lin2" value="A"> -2<br>
+<input type="radio" name="lin2" value="B"> 0<br>
+<input type="radio" name="lin2" value="C"> 1<br>
+<input type="radio" name="lin2" value="D"> 10<br>
+<button type="button" onclick="clearAnswer('lin2')">Clear</button>
+<br><br>
+
+<!-- Question 3 -->
+<p>18. Which is a vector space property?</p>
+<input type="radio" name="lin3" value="A"> Closure under addition<br>
+<input type="radio" name="lin3" value="B"> Closure under multiplication only<br>
+<input type="radio" name="lin3" value="C"> Distributivity of scalars only<br>
+<input type="radio" name="lin3" value="D"> None of the above<br>
+<button type="button" onclick="clearAnswer('lin3')">Clear</button>
+<br><br>
+
+<!-- Question 4 -->
+<p>19. What is the inverse of \(\begin{pmatrix}1 & 0 \\ 0 & 2\end{pmatrix}\)?</p>
+<input type="radio" name="lin4" value="A"> \(\begin{pmatrix}1 & 0 \\ 0 & 1/2\end{pmatrix}\)<br>
+<input type="radio" name="lin4" value="B"> \(\begin{pmatrix}0 & 1 \\ 2 & 0\end{pmatrix}\)<br>
+<input type="radio" name="lin4" value="C"> \(\begin{pmatrix}2 & 0 \\ 0 & 1\end{pmatrix}\)<br>
+<input type="radio" name="lin4" value="D"> No inverse<br>
+<button type="button" onclick="clearAnswer('lin4')">Clear</button>
+<br><br>
+
+<!-- Question 5 -->
+<p>20. If v = (1,2,3) and w = (2,1,−1), what is v · w?</p>
+<input type="radio" name="lin5" value="A"> 0<br>
+<input type="radio" name="lin5" value="B"> -1<br>
+<input type="radio" name="lin5" value="C"> 1<br>
+<input type="radio" name="lin5" value="D"> 3<br>
+<button type="button" onclick="clearAnswer('lin5')">Clear</button>
+<br><br>
+
+<!-- Question 6 -->
+<p>21. A matrix is singular if its determinant is?</p>
+<input type="radio" name="lin6" value="A"> Non‑zero<br>
+<input type="radio" name="lin6" value="B"> Positive<br>
+<input type="radio" name="lin6" value="C"> Zero<br>
+<input type="radio" name="lin6" value="D"> Negative<br>
+<button type="button" onclick="clearAnswer('lin6')">Clear</button>
+<br><br>
+
+<!-- Question 7 -->
+<p>22. What does it mean for vectors to be linearly independent?</p>
+<input type="radio" name="lin7" value="A"> You can express one vector as a multiple of another<br>
+<input type="radio" name="lin7" value="B"> They are orthogonal<br>
+<input type="radio" name="lin7" value="C"> No vector can be written as a combination of others<br>
+<input type="radio" name="lin7" value="D"> They have the same magnitude<br>
+<button type="button" onclick="clearAnswer('lin7')">Clear</button>
+<br><br>
+
+<!-- Question 8 -->
+<p>23. What is the rank of \(\begin{pmatrix}1 & 2 \\ 2 & 4\end{pmatrix}\)?</p>
+<input type="radio" name="lin8" value="A"> 0<br>
+<input type="radio" name="lin8" value="B"> 1<br>
+<input type="radio" name="lin8" value="C"> 2<br>
+<input type="radio" name="lin8" value="D"> 3<br>
+<button type="button" onclick="clearAnswer('lin8')">Clear</button>
+<br><br>
+
+<!-- Question 9 -->
+<p>24. The equation Ax = 0 always has which solution?</p>
+<input type="radio" name="lin9" value="A"> Only trivial solution<br>
+<input type="radio" name="lin9" value="B"> No solution<br>
+<input type="radio" name="lin9" value="C"> Infinite solutions only<br>
+<input type="radio" name="lin9" value="D"> Exactly one non‑zero solution<br>
+<button type="button" onclick="clearAnswer('lin9')">Clear</button>
+<br><br>
+
+<!-- Question 10 -->
+<p>25. If λ is an eigenvalue of a matrix A, then det(A – λI) equals?</p>
+<input type="radio" name="lin10" value="A"> 0<br>
+<input type="radio" name="lin10" value="B"> 1<br>
+<input type="radio" name="lin10" value="C"> λ<br>
+<input type="radio" name="lin10" value="D"> det(A)<br>
+<button type="button" onclick="clearAnswer('lin10')">Clear</button>
+<br><br>
+
+
+
+           <h4>Probability &    Statistics</h4>
+    <!-- Probability & Statistics, Calculus, Numerical Methods, Logic & Algorithms -->
+    <!-- Example Q21 -->
+    <div class="question">
+      <h5>Q21: Probability of getting a head in a fair coin toss:</h5>
+      <label><input type="radio" name="q1" value="A"> 0.25</label><br>
+      <label><input type="radio" name="q1" value="B"> 0.5</label><br>
+      <label><input type="radio" name="q1" value="C"> 0.75</label><br>
+      <label><input type="radio" name="q1" value="D"> 1</label><br>
+    </div>
+       <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+
+       <div class="question">
+<h5>8: If n(A) = 5 and n(B) = 3, n(A ∪ B) = 7, then n(A ∩ B) = ?</h5>
+<label><input type="radio" name="q1" value="A"> 1</label><br>
+<label><input type="radio" name="q1" value="B"> 2</label><br>
+<label><input type="radio" name="q1" value="C"> 3</label><br>
+<label><input type="radio" name="q1" value="D"> 0</label><br>
+</div>
+    <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+
+<div class="question">
+<h5>9: The recurrence relation for Fibonacci numbers is:</h5>
+<label><input type="radio" name="q" value="A"> F(n) = F(n-1) + F(n-2)</label><br>
+<label><input type="radio" name="q" value="B"> F(n) = F(n-1) - F(n-2)</label><br>
+<label><input type="radio" name="q" value="C"> F(n) = 2F(n-1)</label><br>
+<label><input type="radio" name="q" value="D"> F(n) = F(n-2)</label><br>
+</div>
+      <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+<div class="question">
+<h5>10: A graph with no cycles is called:</h5>
+<abel><input type="radio" name="q1" value="A"> Tree</label><br>
+<label><input type="radio" name="q1" value="B"> Cycle graph</label><br>
+<label><input type="radio" name="q1" value="C"> Complete graph</label><br>
+<label><input type="radio" name="q1" value="D"> Null graph</label><br>
+</div>
+        <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+
+<div class="question">
+<h5>11: Which of these sets is countably infinite?</h5>
+<label><input type="radio" name="q1" value="A"> Real numbers</label><br>
+<label><input type="radio" name="q1" value="B"> Natural numbers</label><br>
+<label><input type="radio" name="q1" value="C"> Interval [0,1]</label><br>
+<label><input type="radio" name="q1" value="D"> Complex numbers</label><br>
+</div>
+        <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+<div class="question">
+<h5>12: The logical statement “p → q” is equivalent to:</h5>
+<label><input type="radio" name="q1" value="A"> ¬p ∨ q</label><br>
+<label><input type="radio" name="q1" value="B"> p ∨ ¬q</label><br>
+<label><input type="radio" name="q1" value="C"> ¬p ∧ q</label><br>
+<label><input type="radio" name="q1" value="D"> p ∧ ¬q</label><br>
+</div>
+    <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+       
+   
+<div class="question">
+<h5>13: If set A has 3 elements, how many subsets does it have?</h5>
+<label><input type="radio" name="q1" value="A"> 6</label><br>
+<label><input type="radio" name="q1" value="B"> 8</label><br>
+<label><input type="radio" name="q1" value="C"> 9</label><br>
+<label><input type="radio" name="q1" value="D"> 7</label><br>
+</div>
+          <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+<div class="question">
+<h5>14: The sum of first n natural numbers is given by?</h5>
+<label><input type="radio" name="q1" value="A"> n(n+1)/2</label><br>
+<label><input type="radio" name="q1" value="B"> n^2</label><br>
+<label><input type="radio" name="q1" value="C"> n^2+n</label><br>
+<label><input type="radio" name="q1" value="D"> n(n-1)/2</label><br>
+</div>
+         <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+<div class="question">
+<h5>15: The set {2,4,6} ∩ {4,6,8} = ?</h5>
+<label><input type="radio" name="q1" value="A"> {2}</label><br>
+<label><input type="radio" name="q1" value="B"> {4,6}</label><br>
+<label><input type="radio" name="q1" value="C"> {6,8}</label><br>
+<label><input type="radio" name="q1" value="D"> {2,4,6,8}</label><br>
+</div>
+         <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+
+<div class="question">
+<h5>Q14: Number of edges in a complete graph with 5 vertices?</h5>
+<label><input type="radio" name="q1" value="A"> 10</label><br>
+<label><input type="radio" name="q1" value="B"> 5</label><br>
+<label><input type="radio" name="q1" value="C"> 15</label><br>
+<label><input type="radio" name="q1" value="D"> 20</label><br>
+</div>
+         <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+<div class="question">
+<h5>Q15: Which of the following is an even function?</h5>
+<label><input type="radio" name="q1" value="A"> f(x) = x^3</label><br>
+<label><input type="radio" name="q1" value="B"> f(x) = x^2</label><br>
+<label><input type="radio" name="q1" value="C"> f(x) = x^3 + x</label><br>
+<label><input type="radio" name="q1" value="D"> f(x) = x^5 + x^3</label><br>
+</div>
+        <button onclick="clearchoice()">Clear Answer</button>
+        
+       <script>
+         function clearchoice() {
+             const options =
+              document.getElementsByName("q1");
+              for(let i= 0; i<options.length; i++){
+                options[i].checked = false;
+              }
+            
+         }
+       </script>
+
+       <br>
+       <br>
+       <br>
+       <br>
+       <br>
+    <!-- Repeat same pattern until Q60 -->
+     
+
+  <button type="submit" onclick="finishtest()">Submit Exam</button>
+  <script>
+     function finishTest() {
+    // Let's say your timer variable is 'secondsElapsed'
+    localStorage.setItem("timeUsed", secondsElapsed); 
+    
+    // Then redirect to results page
+    window.location.href = "results.html?q1=4..."; 
+}
+   </script>
+</form>
+
+ 
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNI-ASSESS</title>
+</head>
+<link rel="stylesheet" href="style.css">
+  <style>
+     .btn{
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: blue;
+        color: white;
+        border-radius: 12px;
+    }
+
+    .btn:hover{
+        transform: scale(1.02);
+        background-color: yellow;
+        cursor: pointer;
+        color: blue;
+    }
+
+    #startBtn{
+        padding: 12px 24px;
+        border-radius: 6px;
+        background-color: #1e6bff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+    }
+
+    #startBtn:hover{
+        background-color: grey;
+        cursor: not-allowed;
+    }
+
+    #timer{
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+  </style>
+<body>
+     <header>
+            <nav>
+                   <h1 class="logo">UNI-ASSESS</h1>
+                   <a href="index.html">Home</a>
+            </nav>
+    </header>
+ <br>
+     <br>
+     <br>
+     <br>
+     <br>
+    <br>
+       <h1 style="color: black;">WELCOME USER👋 </h1>
+
+       <a href="MTH.html">
+    <button class="btn pick">MTH</button>
+
+    <a href="COS.html">
+    <button class="btn pick">COS</button>
+
+    <a href="CSC.html">
+    <button class="btn pick">CSC</button>
+
+    <a href="PHY.html">
+    <button class="btn pick">PHY</button>
+        <div class="instructions">
+        </a>
+
+      <h2>EXAM INSTRUCTIONS</h2>  
+
+        <P>Please read the following INSTRUCTIONS carefully before starting the test</P>
+    <p>1. This examination consists of 60  multiple-choice-questions</p>
+    <p>2. Time allowed is 60 minutes</p>
+    <p>3. Each question carries 1 mark.</p>
+    <p>4. Once an answer is selected, it can be changed before submission.</p>
+    <p>5. Do not refresh or close the browser during the examination</p>
+    <p>6. Use the Clear Answer button to remove a selected option.</p>
+    <p>7. The test will be submitted automatically when time elaspes</p>
+           <label>
+              <input type="checkbox"
+            id="agreecheckbox">
+               I have read and understood the instructions
+           </label>
+           <a href="MTH.html">
+            <button id="startBtn disabled:none;">
+                Start Exam
+            </button>
+           </a>
+            
+         </div>
+           
+
+    
+</body>
+</html>
