@@ -29,6 +29,20 @@
 </style>
 <link rel="stylesheet" href="style.css">
 <body>
+       <script>
+        async function checkInternet() {
+            try{
+                await fetch("index.html", {mode:"no-cors"});
+                 console.log("internet is working✅");
+            }
+            catch (error) {
+                console.log("No internet❌");
+                window.location.href = "offline.html";
+            }
+            
+        }
+         checkInternet();
+    </script>
      <script> 
         window.onload= function() {
             alert("welcome");
