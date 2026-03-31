@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNI-ASSESS</title>
+</head>
+<style>
+    body{
+         margin: auto;
+    }
+
+    .btn{
+        padding: 12px 24px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: blue;
+        color: white;
+        border-radius: 12px;
+        transition: 0.3s ease;
+    }
+
+    .btn:hover{
+        transform: scale(1.3);
+        background-color: rgb(0, 0, 0);
+        cursor: pointer;
+        color: white;
+    }
+
+    h6{
+       color: #2c3e50;
+       font-weight: 100px;
+         font-size: 30px;
+        font-weight: 50px;
+
+    }
+
+    ul{
+        margin-bottom: 20px;
+    }
+
+    a{
+      color: #2980b9;
+      text-decoration: none;
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+      button{
+    background-color: yellow;
+  }
+</style>
+<body>
+    <link rel="stylesheet" href="style.css">
+<body>
+     <script> 
+        window.onload= function() {
+            alert("welcome to your studyguide🖐️");
+        }; 
+     </script>
+    <header>
+            <nav>
+                 <img src="assess.png" alt="UNI-ASSESS" height="50"><h1 style="color: white;">UNI-ASSESS</h1>
+                <a href="index.html">Home</a>
+                <a href="dashboard.html"> Dashboard </a>
+            </nav>
+    </header>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+      <h2 style="display: flex; align-items: center; justify-content: center;"><u>COS</u>hw</h2>
+
+             <div id="timer">
+  Time Left: <span id="time">60:00</span>
+</div>
+   <script>
+  // Set time in minutes
+  let totalTime = 60 * 60; // 30 minutes in seconds
+
+  const timerDisplay = document.getElementById("time");
+
+  function startTimer() {
+    const timerInterval = setInterval(function () {
+      let minutes = Math.floor(totalTime / 60);
+      let seconds = totalTime % 60;
+
+      // Format to always show 2 digits
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      timerDisplay.textContent = minutes + ":" + seconds;
+
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Submitting test...");
+        
+        // Auto-submit form
+        document.getElementById("cbtForm").submit();
+      }
+
+      totalTime--;
+    }, 1000);
+
+    // Submit function
+  function submitExam() {
+    let timeUsed = originalTime - totalTime;
+
+    // Save time used in localStorage
+    localStorage.setItem("timeUsed", timeUsed);
+
+    document.getElementById("cbtForm").submit();
+  }
+  }
+
+  // Start immediately page loads
+  window.onload = startTimer;
+</script>
+
+ <form id="cbtForm" action="Result.html" method="get">
+     <h3>COS</h3>
+                                
+      <h4>Basics and Fundamentals</h4>
+      <!--Quesion 1-->
+  <div class="question">
+      <p><strong>1. A computer is a machine that?</strong></p>
+
+      <label>
+        <input type="radio" name="q1" value="A">
+          A. Only stores data
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q1" value="B">
+          B. Process data into information
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q1" value="C">
+          C. Only calculates numbers
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q1" value="D">
+          D. Types document
+      </label><br>
+      <button type="button" onclick="clearAnswer('q1')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 2-->
+  <div class="question">
+      <p><strong>2. Which of the following is not a component of a computer</strong></p>
+
+      <label>
+        <input type="radio" name="q2" value="A">
+          A. CPU
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q2" value="B">
+          B. Monitor
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q2" value="C">
+          C. Keyboard
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q2" value="D">
+          D. Fuel
+      </label><br>
+      <button type="button" onclick="clearAnswer('q2')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+  <!--Quesion 3-->
+  <div class="question">
+      <p><strong>3. Hardware refers to:</strong></p>
+
+      <label>
+        <input type="radio" name="q3" value="A">
+          A. Programs
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q3" value="B">
+          B. Physical parts
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q3" value="C">
+          C. Data
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q3" value="D">
+          D. Instructions
+      </label><br>
+      <button type="button" onclick="clearAnswer('q3')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 4-->
+  <div class="question">
+      <p><strong>4. Software refers to:</strong></p> 
+
+      <label>
+        <input type="radio" name="q4" value="A">
+          A. Physical Devices
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q4" value="B">
+          B. Programs and Instructions
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q4" value="C">
+          C. Wires
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q4" value="D">
+          D. Circuits
+      </label><br>
+      <button type="button" onclick="clearAnswer('q4')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 5-->
+  <div class="question">
+      <p><strong>5. An operating system is:</strong></p>
+
+      <label>
+        <input type="radio" name="q5" value="A">
+          A. A game
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q5" value="B">
+          B. A Hardware Device
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q5" value="C">
+          C. System software that manages  resources.
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q5" value="D">
+          D. A browser
+      </label><br>
+      <button type="button" onclick="clearAnswer('q5')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 6-->
+  <div class="question">
+      <p><strong>6. Which is an operating system</strong></p>
+
+      <label>
+        <input type="radio" name="q6" value="A">
+          A. Microsoft word
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q6" value="B">
+          B. Windows
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q6" value="C">
+          C. Chrome
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q6" value="D">
+          D. Excel
+      </label><br>
+      <button type="button" onclick="clearAnswer('q6')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 7-->
+  <div class="question">
+      <p><strong>7. Which is an input device?</strong></p>
+
+      <label>
+        <input type="radio" name="q7" value="A">
+          A. Monitor
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q7" value="B">
+          B. Printer
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q7" value="C">
+          C. Keyboard
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q7" value="D">
+          D. Speaker
+      </label><br>
+      <button type="button" onclick="clearAnswer('q7')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 8-->
+  <div class="question">
+      <p><strong>8. Which is an output device?</strong></p>
+
+      <label>
+        <input type="radio" name="q8" value="A">
+          A. Mouse
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q8" value="B">
+          B. Keyboard
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q8" value="C">
+          C. Monitor
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q8" value="D">
+          D. Scanner
+      </label><br>
+      <button type="button" onclick="clearAnswer('q8')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 9-->
+  <div class="question">
+      <p><strong>9. Data is:</strong></p>
+
+      <label>
+        <input type="radio" name="q9" value="A">
+          A. Raw facts
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q9" value="B">
+          B. Final results
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q9" value="C">
+          C. Instructions
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q9" value="D">
+          D.Network
+      </label><br>
+      <button type="button" onclick="clearAnswer('q1')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 10-->
+  <div class="question">
+      <p><strong>10. Information is:</strong></p>
+
+      <label>
+        <input type="radio" name="q10" value="A">
+          A. Raw Data
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q10" value="B">
+          B. Processed data
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q10" value="C">
+          C. Numbers only
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q10" value="D">
+          D.Codes
+      </label><br>
+      <button type="button" onclick="clearAnswer('q10')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 11-->
+  <div class="question">
+      <p><strong>11. A program is:</strong></p>
+
+      <label>
+        <input type="radio" name="q11" value="A">
+          A. Set of instructions
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q11" value="B">
+          B. Device
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q11" value="C">
+          C. Virus
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q1" value="D">
+          D. Types document
+      </label><br>
+      <button type="button" onclick="clearAnswer('q11')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 12-->
+  <div class="question">
+      <p><strong>12. A programming language i used to:</strong></p>
+
+      <label>
+        <input type="radio" name="q12" value="A">
+          A. Play games
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q12" value="B">
+          B. Communicate with computers
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q12" value="C">
+          C. Type documents
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q12" value="D">
+          D. Store files
+      </label><br>
+      <button type="button" onclick="clearAnswer('q12')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 13-->
+  <div class="question">
+      <p><strong>A compiler:?</strong></p>
+
+      <label>
+        <input type="radio" name="q13" value="A">
+          A. Executes line by line
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q13" value="B">
+          B. Translates the whole program at once 
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q13" value="C">
+          C. Deletes Code
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q14" value="D">
+          D. Runs hardware
+      </label><br>
+      <button type="button" onclick="clearAnswer('q14')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+
+  <!--Quesion 15-->
+  <div class="question">
+      <p><strong>15. CPU stands for: A central processing unit</strong></p>
+
+      <label>
+        <input type="radio" name="q14" value="A">
+          A. Central processing unit
+      </label><br>
+  </div>
+        
+  <label>
+        <input type="radio" name="q14" value="B">
+          B.Computer personal unit
+      </label><br>
+  </div>
+
+  <label>
+        <input type="radio" name="q14" value="C">
+          C. Control processing unit
+      </label><br>
+  </div>
+  
+  <label>
+        <input type="radio" name="q1" value="D">
+          D. Central program unit
+      </label><br>
+      <button type="button" onclick="clearAnswer('q1')">Clear</button>
+          <script>
+function clearAnswer(questionName) {
+  let options = document.getElementsByName(questionName);
+  
+  options.forEach(function(option) {
+    option.checked = false;
+  });
+}
+</script>
+  </div>
+
+ </form>
+
